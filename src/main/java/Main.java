@@ -7,7 +7,7 @@ public class Main {
    public static void main(String[] args) {
       //Start Game
       startGame();
-//commment
+
       //Finish Game
       System.out.println("\nThank you for plaing!");
    }
@@ -17,8 +17,21 @@ public class Main {
       System.out.println(getUserName());
 
       //Game Logic
+      do {
+
+      } while (keepPlaying());
 
 
+   }
+
+   
+
+   //Play on or not
+   public static boolean keepPlaying() {
+      System.out.println("(1) Play (2) Stop");
+      String play = scanner.next();
+      //the .equals method will return true or false
+      return play.equals("1");
    }
 
    //Getting user name
