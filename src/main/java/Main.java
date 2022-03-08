@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
    //Declare a Scanner object
@@ -18,13 +19,44 @@ public class Main {
 
       //Game Logic
       do {
-
+         int numberToGuess = generateRandomNumber();
+         //User pick number
+         System.out.println(pickANumber());
+         for(int i = 0; i < 6; i++) {
+            System.out.println(numberToGuess);
+            if(numberToGuess != guess()) {
+               if(i == 5) {
+                  System.out.println("You loose");
+                  break;
+               }
+               System.out.println("Please guess again");
+            } else {
+               System.out.println("Congrats you Won!");
+               break;
+            }
+      }
       } while (keepPlaying());
-
-
    }
 
-   
+   //Get User Guess
+   public static int guess() {
+      int guess = 0;
+      try {
+         guess = Integer.parseInt(scanner.next());
+      } catch (Exception e) {
+         return guess;
+      }
+      return guess;
+   }
+
+   public static String pickANumber() {
+      return "Please pick a number from 0 to 10";
+   }
+
+   //Generate Random Number
+   public static int generateRandomNumber() {
+      return ThreadLocalRandom.current().nextInt(1, 10);
+   }
 
    //Play on or not
    public static boolean keepPlaying() {
