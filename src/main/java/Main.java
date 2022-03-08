@@ -15,7 +15,7 @@ public class Main {
    //Putting methods here
    public static void startGame() {
       System.out.println(getUserName());
-      
+
       //Game Logic
 
 
